@@ -3,7 +3,6 @@ package general.rx.file
 import android.content.Context
 import android.provider.MediaStore
 import android.util.Log
-import general.model.Media
 import io.reactivex.Flowable
 import java.io.File
 import java.util.*
@@ -16,6 +15,7 @@ import java.util.concurrent.TimeUnit
  * Created: 11/30/17
  * ____________________________________
  */
+/*
 
 object RxGalleryUtil {
 	private val TAG = RxFileUtil::class.java.simpleName
@@ -95,4 +95,4 @@ object RxGalleryUtil {
 			return@fromCallable data
 		}
 	}
-}
+}*/
