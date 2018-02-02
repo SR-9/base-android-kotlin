@@ -25,38 +25,8 @@ abstract class BaseActivity : RxAppCompatActivity() {
 	open fun hideLoading() = mLoading.dismiss()
 
 	override fun onCreate(savedInstanceState : Bundle?) {
-		MobileAds.initialize(this, "ca-app-pub-5423623055494031~4774816517")
-//		setWindowFlag()
 		super.onCreate(savedInstanceState)
 		setContentView(layoutId)
 		onViewCreated()
-	}
-
-	private fun setWindowFlag() {
-		ViewUtil.setWindowFlag(window)
-	}
-
-	override fun onWindowFocusChanged(hasFocus : Boolean) {
-		super.onWindowFocusChanged(hasFocus)
-//		setWindowFlag()
-	}
-
-	override fun onResume() {
-		super.onResume()
-//		keyboardHandler()
-	}
-
-	private fun keyboardHandler() {
-		RxKeyboardUtil().create(window.decorView.rootView)
-			.bindToLifecycle(this)
-			.subscribeBy{
-				if(it < 200) {
-					ViewUtil.setWindowFlag(window)
-				}
-			}
-	}
-
-	fun setupSlidingAnimator() {
-		overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left)
 	}
 }

@@ -37,7 +37,7 @@ class ProgressResponseBody(private val responseBody : ResponseBody) : ResponseBo
 			override fun read(sink : Buffer, byteCount : Long) : Long {
 				val bytesRead = super.read(sink, byteCount)
 				totalBytesRead += if (bytesRead != (-1).toLong()) bytesRead else 0.toLong()
-				EventBus.getDefault().post(ProgressEventBus(downloaded = totalBytesRead, totalSize = contentLength()))
+				//EventBus.getDefault().post(ProgressEventBus(downloaded = totalBytesRead, totalSize = contentLength()))
 				return bytesRead
 			}
 		}
