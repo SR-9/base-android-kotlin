@@ -16,16 +16,17 @@ open class ApiServices(private val url : String) {
 		val DB_DATE_FORMAT = "yyyy-MM-dd kk:mm:ss"
 	}
 
-	private var _retrofit : Retrofit? = null
 	private val _okHttpClient = getOkHttpClient()
-	open fun getRetrofit() : Retrofit {
-		if (_retrofit == null) {
-			_retrofit = getRetrofit(url)
+	open var retrofit : Retrofit? = null
+	get() {
+		if (field == null) {
+			field = getRetrofit(url)
 		}
-		return _retrofit!!
+		return field!!
 	}
 
 	open fun getRetrofit(baseUrl : String) : Retrofit {
+		println("--- init retrofit ---")
 		val gson = GsonBuilder()
 			.serializeNulls()
 			.setDateFormat(DB_DATE_FORMAT)
@@ -40,8 +41,10 @@ open class ApiServices(private val url : String) {
 	}
 
 	private fun getOkHttpClient() : OkHttpClient {
-		val logging = HttpLoggingInterceptor()
-		logging.level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+		println("--- init okhttp ---")
+		val logging = HttpLoggingInterceptor().apply {
+			level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+		}
 		return OkHttpClient.Builder()
 			.addNetworkInterceptor(StethoInterceptor())
 			.addNetworkInterceptor(ProgressInterceptor())
