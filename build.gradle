@@ -43,6 +43,7 @@ dependencies {
     }
     //compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.21"
     compile("com.android.support:appcompat-v7:$google_support_version") { force = true }
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     /** Retrofit - rest api */
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
