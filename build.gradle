@@ -7,7 +7,6 @@ android {
     compileSdkVersion compile_sdk_version
     buildToolsVersion build_tools_version
     defaultConfig {
-        //applicationId "${rootProject.ext.applicationId}"
         minSdkVersion min_sdk_version
         targetSdkVersion compile_sdk_version
         versionCode 1
