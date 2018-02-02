@@ -1,4 +1,8 @@
 package general.mvp
 
 
-abstract class BasePresenter
+abstract class BasePresenter(private var viewCallback: Any?) {
+	fun destroy() {
+		viewCallback = null
+	}
+}
