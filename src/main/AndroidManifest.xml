@@ -1,7 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.baseappication" >
-    <!--<uses-permission android:name="android.permission.INTERNET" />-->
+    package="com.baseappication">
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
     <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
     <!--<uses-feature android:name="android.hardware.location.gps" />-->
+
+    <application>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="0eb52b22fbf271d8e1831bedee9249f6df4fc632" />
+    </application>
+
 </manifest>

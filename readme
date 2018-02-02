@@ -1,14 +1,15 @@
-ext.kotlin_version = '1.2.21'
-ext.compile_sdk_version = 26
-ext.min_sdk_version = 21
-ext.build_tools_version = '26.0.2'
-ext.google_support_version = '26.1.0'
+ext.kotlin_version              =   '1.2.21'
+ext.compile_sdk_version         =   26
+ext.min_sdk_version             =   21
+ext.build_tools_version         =   '26.0.2'
+ext.google_support_version      =   '26.1.0'
+ext.anko_version                =   '0.10.4'
 
 signingConfigs {
     configSignDebug {
         keyAlias 'Keystore'
         keyPassword 'Keystore'
-        storeFile file(project.rootDir.path + '/BaseApplication/keystore/Keystore.bks')
+        storeFile file(project.rootDir.path + '/baseKtAndroid/keystore/Keystore.bks')
         storePassword 'Keystore'
     }
 }
