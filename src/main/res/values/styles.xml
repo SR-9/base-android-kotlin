@@ -4,6 +4,6 @@
     <style name="BaseAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- some app config -->
         <item name="actionBarSize">@dimen/actionBarHeight</item> <!-- reduce height actionbar -->
-        <!--<item name="windowActionBar">false</item>-->
     </style>
+
 </resources>
