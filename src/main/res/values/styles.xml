@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- some app config -->
+        <item name="actionBarSize">40dp</item> <!-- reduce height actionbar -->
+    </style>
+</resources>
