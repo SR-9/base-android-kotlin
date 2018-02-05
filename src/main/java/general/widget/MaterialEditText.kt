@@ -5,7 +5,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
-import android.support.v7.widget.AppCompatTextView
+import android.support.v7.widget.AppCompatEditText
 import android.util.AttributeSet
 
 import com.baseappication.R
@@ -21,7 +21,7 @@ import io.reactivex.rxkotlin.subscribeBy
  * ____________________________________
  */
 
-class MaterialTextView : AppCompatTextView {
+class MaterialEditText : AppCompatEditText {
 
 	private var _cornerRadius = -1f
 	private var _stroke = 1
@@ -70,6 +70,7 @@ class MaterialTextView : AppCompatTextView {
 						bg
 					}
 					else -> {
+						println("vao = 3")
 						val bg = GradientDrawable()
 						if (_cornerRadius >= 0) {
 							bg.cornerRadius = _cornerRadius

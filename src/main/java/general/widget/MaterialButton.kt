@@ -42,7 +42,7 @@ class MaterialButton @JvmOverloads constructor(
 		typeArray.recycle()
 
 		isClickable = true
-		background = null
+		if(background == null) background = null
 	}
 
 	override fun setBackground(background : Drawable?) {
@@ -60,7 +60,6 @@ class MaterialButton @JvmOverloads constructor(
 							setStroke(_stroke, _strokeColor)
 							this.setColor(background.color) // transparent cannot ripple
 						}
-
 					}
 					else -> {
 						GradientDrawable().apply {
