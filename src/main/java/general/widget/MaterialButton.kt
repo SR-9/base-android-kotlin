@@ -42,10 +42,10 @@ class MaterialButton @JvmOverloads constructor(
 		typeArray.recycle()
 
 		isClickable = true
+		background = null
 	}
 
 	override fun setBackground(background : Drawable?) {
-
 		RxView.layoutChanges(this)
 			.bindToLifecycle(this)
 			.subscribeBy {
@@ -67,7 +67,7 @@ class MaterialButton @JvmOverloads constructor(
 							colorFilter = background?.colorFilter
 							cornerRadius = if (_cornerRadius >= 0) _cornerRadius else (measuredHeight / 2f)
 							setStroke(_stroke, _strokeColor)
-							this.setColor(Color.TRANSPARENT) // transparent cannot ripple
+							this.setColor(Color.WHITE) // transparent cannot ripple
 						}
 					}
 				}
