@@ -35,10 +35,10 @@ class MaterialButton @JvmOverloads constructor(
 	private var _strokeColor : Int = Color.GRAY
 
 	init {
-		val typeArray = context.obtainStyledAttributes(attributeSet, R.styleable.MaterialButton)
-		_cornerRadius = typeArray.getDimensionPixelSize(R.styleable.MaterialButton_cornerRadius, -1).toFloat()
-		_stroke = typeArray.getDimensionPixelSize(R.styleable.MaterialButton_stroke, 1)
-		_strokeColor = typeArray.getColor(R.styleable.MaterialButton_strokeColor, Color.GRAY)
+		val typeArray = context.obtainStyledAttributes(attributeSet, R.styleable.MaterialView)
+		_cornerRadius = typeArray.getDimensionPixelSize(R.styleable.MaterialView_cornerRadius, -1).toFloat()
+		_stroke = typeArray.getDimensionPixelSize(R.styleable.MaterialView_stroke, 1)
+		_strokeColor = typeArray.getColor(R.styleable.MaterialView_strokeColor, Color.GRAY)
 		typeArray.recycle()
 
 		isClickable = true
