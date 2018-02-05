@@ -70,7 +70,6 @@ class MaterialEditText : AppCompatEditText {
 						bg
 					}
 					else -> {
-						println("vao = 3")
 						val bg = GradientDrawable()
 						if (_cornerRadius >= 0) {
 							bg.cornerRadius = _cornerRadius
