@@ -73,7 +73,7 @@ class MaterialButton @JvmOverloads constructor(
 				}
 				val colorStateListRipple = ColorStateList(
 					arrayOf(intArrayOf(0)),
-					intArrayOf(0x50000000) // ripple color
+					intArrayOf(0x30000000) // ripple color
 				)
 				super.setBackground(RippleDrawable(colorStateListRipple, bg, bg))
 			}
