@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.trello.rxlifecycle2.components.support.RxFragment
 import com.fsociety.widget.Loading
+import com.trello.rxlifecycle2.components.support.RxFragment
 
 abstract class BaseFragment : RxFragment() {
-	protected abstract val layoutId : Int
+	protected abstract val layoutId : Any
 	private val mLoading = Loading()
 	private var mView : View? = null
 
@@ -18,14 +18,19 @@ abstract class BaseFragment : RxFragment() {
 	override fun onCreateView(inflater : LayoutInflater,
 	                          container : ViewGroup?,
 	                          savedInstanceState : Bundle?) : View {
-		if (mView != null) return mView!!
-		mView = inflater.inflate(layoutId, container, false)
+
+		mView = mView ?: when (layoutId) {
+			is View -> layoutId as View
+			is Int -> inflater.inflate(layoutId as Int, container, false)
+			else -> throw Exception("Unknown layout")
+		}
+
 		return mView!!
 	}
 
 	override fun onViewCreated(view : View, savedInstanceState : Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
-		if(!isViewCreated) {
+		if (!isViewCreated) {
 			isViewCreated = true
 			onViewCreated()
 		}
