@@ -3,14 +3,15 @@ package com.fsociety.mvp
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import com.baseappication.R
-import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.fsociety.widget.Loading
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 
 abstract class BaseActivity : RxAppCompatActivity() {
 
 
-	protected abstract val layoutId : Int
+	protected abstract val layoutId : Any
 	private val mLoading = Loading()
 
 	open fun onViewCreated() {}
@@ -19,7 +20,11 @@ abstract class BaseActivity : RxAppCompatActivity() {
 
 	override fun onCreate(savedInstanceState : Bundle?) {
 		super.onCreate(savedInstanceState)
-		setContentView(layoutId)
+		when (layoutId) {
+			is View -> setContentView(layoutId as View)
+			is Int -> setContentView(layoutId as Int)
+			else -> println("unknown layout")
+		}
 		setupActionbar()
 		onViewCreated()
 	}
