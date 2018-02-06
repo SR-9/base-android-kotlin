@@ -18,12 +18,12 @@ open class ApiServices(private val url : String) {
 
 	private val _okHttpClient = getOkHttpClient()
 	open var retrofit : Retrofit? = null
-	get() {
-		if (field == null) {
-			field = getRetrofit(url)
+		get() {
+			if (field == null) {
+				field = getRetrofit(url)
+			}
+			return field!!
 		}
-		return field!!
-	}
 
 	open fun getRetrofit(baseUrl : String) : Retrofit {
 		println("--- init retrofit ---")
@@ -42,13 +42,14 @@ open class ApiServices(private val url : String) {
 
 	private fun getOkHttpClient() : OkHttpClient {
 		println("--- init okhttp ---")
-		val logging = HttpLoggingInterceptor().apply {
-			level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
-		}
 		return OkHttpClient.Builder()
 			.addNetworkInterceptor(StethoInterceptor())
 			.addNetworkInterceptor(ProgressInterceptor())
-			.addInterceptor(logging)
+			.addInterceptor(
+				HttpLoggingInterceptor().apply {
+					level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+				}
+			)
 			.readTimeout(1L, TimeUnit.MINUTES)
 			.connectTimeout(1L, TimeUnit.MINUTES)
 			.build()

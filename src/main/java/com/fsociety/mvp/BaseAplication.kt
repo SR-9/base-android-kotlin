@@ -2,6 +2,7 @@ package com.fsociety.mvp
 
 import android.support.multidex.MultiDexApplication
 import com.crashlytics.android.Crashlytics
+import com.facebook.stetho.Stetho
 import io.fabric.sdk.android.Fabric
 
 
@@ -18,6 +19,7 @@ import io.fabric.sdk.android.Fabric
 class BaseAplication : MultiDexApplication() {
 	override fun onCreate() {
 		super.onCreate()
+		Stetho.initializeWithDefaults(this)
 		Fabric.with(this, Crashlytics())
 	}
 }
